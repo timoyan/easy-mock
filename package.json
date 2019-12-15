@@ -15,7 +15,8 @@
     "build": "cross-env NODE_ENV=production npm run build:dev",
     "build:dev": "rimraf dist && npm run build:client && npm run build:server",
     "build:client": "webpack --config build/webpack.client.config.js --progress --hide-modules",
-    "build:server": "webpack --config build/webpack.server.config.js --progress --hide-modules"
+    "build:server": "webpack --config build/webpack.server.config.js --progress --hide-modules",
+    "launch": "npm run build:dev && NODE_ENV=production pm2 start app.js"
   },
   "author": "Chuangker",
   "license": "GPL-3.0",
@@ -73,6 +74,7 @@
     "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
+    "pm2": "4.2.1",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
